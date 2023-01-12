@@ -1,14 +1,11 @@
 package br.com.rsousa.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConnectionPage extends PageObject{
+public class ConnectionPage extends PageObject {
 
     public ConnectionPage(WebDriver driver, String url) {
         super(driver);
@@ -36,11 +33,21 @@ public class ConnectionPage extends PageObject{
             try {
                 WebElement enviarConexaoButton = driver.findElement(By.xpath("//button[@aria-label='Enviar agora']"));
                 executorJavascript.executeScript("arguments[0].click();", enviarConexaoButton);
-            } catch (Exception e) {
 
+            } catch (Exception e) {
             } finally {
+                //                CASO TENHAMOS ALCANÇADO O LIMITE DE CONEXAO
+                try {
+                    WebElement entendiLimiteDeConexaoButton = driver.findElement(By.xpath("//button[@aria-label='Entendi']"));
+                    this.fechar();
+                    throw new RuntimeException("Você atingiu o limite de conexões semanais do linkedin");
+                } catch (WebDriverException e) {
+                }
+
                 WebElement closeButton = driver.findElement(By.xpath("//button[@aria-label='Fechar']"));
                 executorJavascript.executeScript("arguments[0].click();", closeButton);
+
+
                 this.aguardar(1.5);
             }
         });

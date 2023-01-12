@@ -1,5 +1,6 @@
 package br.com.rsousa.pages;
 
+import br.com.rsousa.config.LoadConfigs;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,10 +12,11 @@ import java.util.List;
 public class PageObject {
     protected WebDriver driver;
     private ChromeOptions options = new ChromeOptions();
+    private LoadConfigs configs = new LoadConfigs();
 
     public PageObject(WebDriver driver) {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", "E:/idrap/Cursos/Drivers/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", configs.getCaminhoDoDriver());
             this.driver = new ChromeDriver(configOptionsDefault());
         } else {
             this.driver = driver;
@@ -24,7 +26,9 @@ public class PageObject {
     }
 
     private ChromeOptions configOptionsDefault() {
-        this.options.addArguments("user-data-dir=C:/Users/idrap/AppDatamLocal/Google/Chrome/User Data/Profile 2");
+        if (!configs.getCaminhoDoProfile().isBlank()) {
+            this.options.addArguments("user-data-dir=" + configs.getCaminhoDoProfile());
+        }
         this.options.addArguments("test-type");
         this.options.addArguments("--start-maximized");
         this.options.addArguments("--disable-popup-blocking");

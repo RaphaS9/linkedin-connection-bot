@@ -6,7 +6,6 @@ import br.com.rsousa.pages.ConnectionPage;
 import br.com.rsousa.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 
-import java.util.regex.Matcher;
 
 public class MainLinkedin {
     public static void main(String[] args) {

@@ -12,7 +12,7 @@
 ### Limite de conexões
 No momento em que escrevo essa descrição, atingi meu limite semanal de conexões no Linkedin (como pode ser notado no gif acima). 
 
-Entretando o bot não continua o funcionamento nessa ocasião, alterei o código rapidamente apenas para demonstrar como seria seu funcionamento em condições normais.
+Entretanto o bot não continua o funcionamento nessa ocasião, alterei o código rapidamente apenas para demonstrar como seria seu funcionamento em condições normais.
 
 Quando o limite for antigido, o bot lançará uma exceção parando o programa. Veja:
 

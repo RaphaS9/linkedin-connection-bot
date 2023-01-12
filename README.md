@@ -23,7 +23,7 @@ Quando o limite for antigido, o bot lançará uma exceção parando o programa. 
 <br><br>
 
 ## Introdução
-O bot automatiza o processo de se enviar solicitações de contato para profissionais selecionados por você previamente.
+O bot automatiza o processo de enviar solicitações de conexão para profissionais selecionados por você previamente.
 
 ### Tencologias Usadas
 - Java 17
